@@ -46,6 +46,9 @@ app.post("/", function (req, res) {
     } else {
       fs.writeFileSync(filePath + fileName, buffer);
       // Return the image
+      console.log("Saved in ->");
+      console.log(filePath + fileName);
+      console.log(path.join(__dirname, filePath));
       res.sendFile(fileName, options);
     }
   });
