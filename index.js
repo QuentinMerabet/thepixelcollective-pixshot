@@ -11,6 +11,15 @@ app.use(bodyParser.json());
 
 const sizeMultiplier = 1;
 
+app.get("/boards/:boardCount/:pixelCount", (req, res) => {
+  filePath = "boards/" + req.params.boardCount + "/";
+  fileName = req.params.pixelCount + ".png";
+  var options = {
+    root: path.join(__dirname, filePath),
+  };
+  res.sendFile(fileName, options);
+});
+
 app.post("/", function (req, res) {
   const { boardCount, boardSize, pixelCount, pixels } = req.body;
   // Generating PNG File
