@@ -9,7 +9,7 @@ const port = 3000;
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
-const sizeMultiplier = 1;
+const sizeMultiplier = 32; // Final output: 1024*1024
 
 app.get("/boards/:boardCount/:pixelCount", (req, res) => {
   filePath = "boards/" + req.params.boardCount + "/";
