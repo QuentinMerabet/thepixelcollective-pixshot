@@ -11,13 +11,17 @@ app.use(bodyParser.json());
 
 const sizeMultiplier = 32; // Final output: 1024*1024
 
-app.get("/boards/:boardCount/:pixelCount", (req, res) => {
+app.get("/boards/:boardCount/:pixelCount.png", (req, res) => {
   filePath = "boards/" + req.params.boardCount + "/";
   fileName = req.params.pixelCount + ".png";
   var options = {
     root: path.join(__dirname, filePath),
   };
   res.sendFile(fileName, options);
+});
+
+app.get("/", (req, res) => {
+  res.send("The Pixel Collective ✸ Pixshot server 0.2");
 });
 
 app.post("/", function (req, res) {
